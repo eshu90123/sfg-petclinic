@@ -1,4 +1,4 @@
-package sfg.petclinic.sfgpetclinic.model;
+package sfgpetclinic.model;
 
 import java.time.LocalDate;
 
