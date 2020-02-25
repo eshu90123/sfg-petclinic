@@ -39,6 +39,6 @@
         </plugins>
     </build>
     <scm>
-        <developerConnection>scm:git:https://github.com/eshu90123/sfg-petclinic.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:eshu90123/sfg-petclinic.git</developerConnection>
     </scm>
 </project>
