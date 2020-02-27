@@ -1,28 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleafe.org">
+<html lang="en" xmlns:th="http://www.thymeleafe.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 <head>
     <meta charset="UTF-8">
     <title>List of Pet Owners</title>
 </head>
 <body>
-<h1 th:text="'List of Owners'">List of Owners.....</h1>
+<h2 th:text="'List of Owners'">Owners</h2>
 
-<table>
+<table id="owners" class="table table-striped">
     <thead>
     <tr>
-        <th>Id</th>
-        <th>First Name</th>
-        <th>Last Name</th>
+        <th style="width: 150px;">Id</th>
+        <th style="width: 200px;">First Name</th>
+        <th>City</th>
+        <th style="width: 120px">Last Name</th>
+        <th>Pets</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="owner: ${owners}">
-        <td th:text="${owner?.id}">1</td>
-        <td th:text="${owner?.firstName}">Joe</td>
-        <td th:text="${owner?.lastName}">Buck</td>
+    <tr th:each="owner : ${owners}">
+        <td>
+            <a th:href="@{/owners/__${owner.id}__}" th:text="${owner.firstName + ' ' + owner.lastName}"/></a>
+        </td>
+        <td th:text="${owner.id}"/>
+        <td th:text="${owner.firstName}"/>
+        <td th:text="${owner.lastName}"/>
     </tr>
     </tbody>
 </table>
-
 </body>
 </html>
