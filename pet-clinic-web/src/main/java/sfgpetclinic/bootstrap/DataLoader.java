@@ -1,6 +1,7 @@
 package sfgpetclinic.bootstrap;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.data.convert.JodaTimeConverters;
 import org.springframework.stereotype.Component;
 import sfgpetclinic.model.Owner;
 import sfgpetclinic.model.Pet;
@@ -9,6 +10,8 @@ import sfgpetclinic.model.Vet;
 import sfgpetclinic.services.OwnerService;
 import sfgpetclinic.services.PetTypeService;
 import sfgpetclinic.services.VetService;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -37,11 +40,33 @@ public class DataLoader implements CommandLineRunner {
         Owner  owner1 = new Owner();
         owner1.setFirstName("Esha");
         owner1.setLastName("Garg");
+        owner1.setAddress("123 street");
+        owner1.setCity("abc");
+        owner1.setTelephone("12323132213123");
+
+        Pet eshaPet = new Pet();
+        eshaPet.setPetType(savedDogType);
+        eshaPet.setOwner(owner1);
+        eshaPet.setBirthDate(LocalDate.now());
+        eshaPet.setName("Rosco");
+        owner1.getPets().add(eshaPet);
+
         ownerService.save(owner1);
 
         Owner  owner2 = new Owner();
         owner2.setFirstName("Ekta");
         owner2.setLastName("Raman");
+        owner2.setAddress("123 street");
+        owner2.setCity("abc");
+        owner2.setTelephone("12323132213123");
+
+        Pet ektaPet = new Pet();
+        ektaPet.setPetType(savedCatType);
+        ektaPet.setOwner(owner2);
+        ektaPet.setBirthDate(LocalDate.now());
+        ektaPet.setName("Kitty");
+        owner2.getPets().add(ektaPet);
+
         ownerService.save(owner2);
 
         System.out.println("Loaded Owners.....");
