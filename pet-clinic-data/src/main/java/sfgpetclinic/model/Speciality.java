@@ -1,5 +1,11 @@
 package sfgpetclinic.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "speciality")
 public class Speciality extends BaseEntity {
 
     public String getDescription() {
@@ -10,5 +16,6 @@ public class Speciality extends BaseEntity {
         this.description = description;
     }
 
+    @Column(name = "description")
     private String description;
 }
