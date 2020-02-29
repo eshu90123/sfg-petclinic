@@ -9,7 +9,6 @@ import sfgpetclinic.repositories.PetTypeRepository;
 import sfgpetclinic.services.OwnerService;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
