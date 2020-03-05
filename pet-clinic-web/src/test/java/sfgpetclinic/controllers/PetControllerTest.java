@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import sfgpetclinic.model.Owner;
 import sfgpetclinic.model.Pet;
 import sfgpetclinic.model.PetType;
+import sfgpetclinic.model.Visit;
 import sfgpetclinic.services.OwnerService;
 import sfgpetclinic.services.PetService;
 import sfgpetclinic.services.PetTypeService;
@@ -86,7 +87,7 @@ class PetControllerTest {
     void initUpdateForm() throws Exception {
         when(ownerService.findById(anyLong())).thenReturn(owner);
         when(petTypeService.findAll()).thenReturn(petTypes);
-        when(petService.findById(anyLong())).thenReturn(Pet.builder().id(2L).build());
+        when(petService.findById(anyLong())).thenReturn(Pet.builder().id(2L).visits(new HashSet<Visit>()).build());
 
         mockMvc.perform(MockMvcRequestBuilders.get("/owners/1/pets/2/edit"))
                 .andExpect(status().isOk())
